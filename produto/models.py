@@ -29,6 +29,9 @@ class Produto(models.Model):
         )
     )
 
+    """
+    Método de redimensionamento de imagem
+    """
     @staticmethod
     def resize_image(img, new_width=800):
         img_full_path = os.path.join(settings.MEDIA_ROOT, img.name)
@@ -36,7 +39,6 @@ class Produto(models.Model):
         original_width, original_height = img_pil.size
 
         if original_width <= new_width:
-            print('retornando, largura original menor ou igual que nova largura')
             img_pil.close()
             return
 
@@ -48,7 +50,6 @@ class Produto(models.Model):
             optimize=True,
             quality=50
         )
-        print('Imagem foi redimensionada')
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
