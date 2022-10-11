@@ -12,3 +12,8 @@ autopep8 - Version: 1.6.0;
 Django Pylint - Version: 2.14.4;
 Django Pillow - Version: 9.2.0;
 Debug Toolbar: Version: 3.5.0 """Only in development"""
+django-extensions - Version: 3.2.1
+wheel - Version: 0.37.1
+pydotplus - Version: 2.0.2
+pyparsing - Version: 3.0.9
+pypiwin32; pythoniwin; pywin32_system32
