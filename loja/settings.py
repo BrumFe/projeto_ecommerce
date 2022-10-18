@@ -170,7 +170,6 @@ SESSION_SAVE_EVERY_REQUEST = False
 
 # Para sessions em arquivos ao invés da base de dados
 # SESSION_ENGINE = "django.contrib.sessions.backends.file"
-# SESSION_FILE_PATH = '/home/luizotavio/Desktop/temp'
 
 # TODO: Remover debug toolbar
 INTERNAL_IPS = [
