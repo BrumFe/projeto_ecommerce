@@ -17,7 +17,7 @@
     <div class="col-lg">
         <div class="mt-4 mt-lg-0">
             <h1 class="h2">{{ produto.nome }}</h1>
-            <p class="lead">{{ produto.qualidade_equipamento }}</p>
+            <p class="lead"> Qualidade do Produto (N = Novo; S = Seminovo (até 4 meses de uso); U = Usado): {{produto.qualidade_equipamento}}</p>
             <p class="lead">{{ produto.descricao_produto }}</p>
             <p class="lead">
                 {% if produto.preco_marketing_promocional %}
