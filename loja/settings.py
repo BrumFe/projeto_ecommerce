@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'crispy_forms',
 
 
 
@@ -50,9 +51,11 @@ INSTALLED_APPS = [
     'debug_toolbar'
 ]
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 GRAPH_MODELS = {
-  'all_applications': True,
-  'group_models': True,
+    'all_applications': True,
+    'group_models': True,
 }
 
 MIDDLEWARE = [
