@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.forms import ValidationError
+from datetime import date
 
 import re
 
@@ -10,7 +11,6 @@ from utils.validacpf import valida_cpf
 class Perfil(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE,
                                    verbose_name='Usuário')
-    idade = models.PositiveIntegerField()
     data_nascimento = models.DateField()
     cpf = models.CharField(max_length=11)
     endereco = models.CharField(max_length=50)
@@ -77,6 +77,14 @@ class Perfil(models.Model):
 
         if error_messages:
             raise ValidationError(error_messages)
+
+    def get_formated_age(self):
+        today = date.today()
+        age = today.year - self.data_nascimento.year - \
+            ((today.month, today.day) <
+             (self.data_nascimento.month, self.data_nascimento.day))
+        return age
+    get_formated_age.short_description = 'Idade'
 
     class Meta:
         verbose_name = 'Perfil'
