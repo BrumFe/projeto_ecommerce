@@ -7,6 +7,5 @@ urlpatterns = [
     path('pagar/<int:pk>', views.Pagar.as_view(), name='pagar'),
     path('salvarpedido/', views.SalvarPedido.as_view(), name='salvarpedido'),
     path('lista/', views.Lista.as_view(), name='lista'),
-    path('detalhe/<int:pk>', views.Detalhe.as_view(), name='detalhe'),
-    path('forms_pagamento/', views.Forms_pagamento.as_view(), name='forms_pagamento')
+    path('detalhe/<int:pk>', views.Detalhe.as_view(), name='detalhe')
 ]
