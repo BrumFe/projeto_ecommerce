@@ -71,6 +71,7 @@ ul.errorlist li {
     }
 }
 */
+
 .form-group textarea {
   width: 100%;
 }
@@ -81,4 +82,9 @@ ul.errorlist li {
 }
 .cart-img {
   max-width: 150px;
+}
+
+.img-logo {
+  width: 175px;
+  heigth: 60px;
 }

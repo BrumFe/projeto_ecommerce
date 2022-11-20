@@ -6,6 +6,7 @@ Python - Version: 3.10.4
 
 Libs:
 
+pip - Version 22.3.1
 Django - Version: 4.0.6;
 Django Crispy-forms - Version: 1.14.0;
 autopep8 - Version: 1.6.0;
@@ -17,3 +18,5 @@ wheel - Version: 0.37.1
 pydotplus - Version: 2.0.2
 pyparsing - Version: 3.0.9
 pypiwin32; pythoniwin; pywin32_system32
+django-grappelli - Version 3.0.3
+django-pagarme - Version 0.26

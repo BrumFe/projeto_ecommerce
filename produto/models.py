@@ -26,13 +26,12 @@ class Produto(models.Model):
             ('U', 'Usado'),
         ), verbose_name='Qualidade do produto'
     )
-    # TODO: Remove blank and null
     imagem = models.ImageField(
-        upload_to='produto_imagens/%Y/%m/', blank=True, null=True)
+        upload_to='produto_imagens/%Y/%m/')
     imagem_1 = models.ImageField(
-        upload_to='produto_imagens/%Y/%m/', blank=True, null=True)
+        upload_to='produto_imagens/%Y/%m/')
     imagem_2 = models.ImageField(
-        upload_to='produto_imagens/%Y/%m/', blank=True, null=True)
+        upload_to='produto_imagens/%Y/%m/')
     imagem_3 = models.ImageField(
         upload_to='produto_imagens/%Y/%m/', blank=True, null=True)
     slug = models.SlugField(unique=True, blank=True, null=True)

@@ -33,9 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'produto',
-    'pedido',
-    'perfil',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +43,10 @@ INSTALLED_APPS = [
     'django_extensions',
     'crispy_forms',
 
+    # My apps
+    'produto',
+    'pedido',
+    'perfil',
 
 
     # TODO: Remover debug toolbar / A debug_toolbar serve para 'debugar' nossa aplicação
