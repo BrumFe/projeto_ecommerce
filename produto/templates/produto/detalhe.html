@@ -56,7 +56,17 @@
     <div class="col-lg">
         <div class="mt-4 mt-lg-0">
             <h1 class="h2">{{ produto.nome }}</h1>
-            <p class="lead"> Qualidade do Produto (N = Novo; S = Seminovo (até 4 meses de uso); U = Usado): {{produto.qualidade_equipamento}}</p>
+            <p class="lead"> Qualidade do Produto:
+                {%if produto.qualidade_equipamento == 'N'%}
+                    <strong>Novo</strong>
+                {%endif%}
+                {%if produto.qualidade_equipamento == 'S'%}
+                    <strong>Seminovo</strong>
+                {%endif%}
+                {%if produto.qualidade_equipamento == 'U'%}
+                    <strong>Usado</strong>
+                {%endif%}
+            </p>
             <p class="lead">{{ produto.descricao_produto }}</p>
             <p class="lead">
                 {% if produto.preco_marketing_promocional %}
@@ -119,7 +129,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="mt-5 mb-5">
-            <h2 class="text-center">{{ produto.nome }}</h2>
+            <h2 class="text-center">{{ produto.nome }} (Ficha Técnica)</h2>
             {{ produto.descricao_tecnica|linebreaks }}
         </div>
     </div>

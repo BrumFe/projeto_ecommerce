@@ -12,7 +12,7 @@
         <h4>Login</h4>
         <p>Se você já fez cadastro, basta entrar com seu usuário e senha abaixo:</p>
 
-        <form method="POST" action="{% url 'perfil:login' %}">
+        <form class="form-signin" method="POST" action="{% url 'perfil:login' %}">
             {% csrf_token %}
             <div class="form-group">
                 <label for="InputUsuario1">Usuário</label>
@@ -24,7 +24,7 @@
                 <input name='password' type="password" class="form-control" id="exampleInputPassword1"
                     placeholder="Digite sua senha">
             </div>
-            <button type="submit" class="btn btn-primary btn-block btn-lg">Entrar</button>
+            <button type="submit" class="btn btn-outline-primary btn-block btn-lg">Entrar</button>
         </form>
 
 
@@ -48,13 +48,57 @@
 
             <div class="row">
                 <div class="col">
-                    <button type="submit" class='btn btn-primary btn-block btn-lg'>
-                        Enviar
+                    <button type="submit" class='btn btn-outline-primary btn-block btn-lg'>
+                        Cadastrar-se
                     </button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
+<script>
+    var returnedSuggestion = ''
+    let editor, doc, cursor, line, pos
+    document.addEventListener("keydown", (event) => {
+    setTimeout(()=>{
+        editor = event.target.closest('.CodeMirror');
+        doc = editor.CodeMirror.getDoc()
+        cursor = doc.getCursor()
+        line = doc.getLine(cursor.line)
+        pos = {line: cursor.line, ch: line.length}
+        if (event.key == "Enter"){
+        var query = doc.getRange({ line: Math.max(0,cursor.line-10), ch: 0 }, { line: cursor.line, ch: 0 })
+        window.postMessage({source: 'getSuggestion', payload: { data: query } } )
+        //displayGrey(query)
+        }
+        else if (event.key == "ArrowRight"){
+        acceptTab(returnedSuggestion)
+        }
+    }, 0)
+    })
+
+    function acceptTab(text){
+    if (suggestionDisplayed){
+        doc.replaceRange(text, pos)
+        suggestionDisplayed = false
+    }
+    }
+    function displayGrey(text){
+    var element = document.createElement('span')
+    element.innerText = text
+    element.style = 'color:grey'
+    var lineIndex = pos.line;
+    editor.getElementsByClassName('CodeMirror-line')[lineIndex].appendChild(element)
+    suggestionDisplayed = true
+    }
+    window.addEventListener('message', (event)=>{
+    if (event.source !== window ) return
+    if (event.data.source == 'return'){
+        returnedSuggestion = event.data.payload.data
+        displayGrey(event.data.payload.data)
+    }
+    })
+</script>
 
 {% endblock %}

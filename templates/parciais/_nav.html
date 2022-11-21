@@ -1,7 +1,7 @@
 {% load static %}
 {% load upfilters %}
 
-<nav class="navbar navbar-dark bg-secondary navbar-expand-lg">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
     <a href="{% url 'produto:lista' %}">
         <img class="img-fluid img-logo" src="{% static 'img/up-hardware.png' %}" alt="up-hardware-logo" width=60 height=40>
     </a>
@@ -54,7 +54,7 @@
         <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'produto:busca' %}">
             <input name="termo" value="{{ request.GET.termo }}" class="form-control mr-sm-2" type="search"
                 placeholder="Busca" aria-label="Busca">
-            <button class="btn btn-dark my-2 my-sm-0" type="submit">Busca</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Busca</button>
         </form>
     </div>
 </nav>
