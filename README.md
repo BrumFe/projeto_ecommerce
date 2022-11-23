@@ -19,4 +19,3 @@ pydotplus - Version: 2.0.2
 pyparsing - Version: 3.0.9
 pypiwin32; pythoniwin; pywin32_system32
 django-grappelli - Version 3.0.3
-django-pagarme - Version 0.26
